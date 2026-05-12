@@ -1,10 +1,10 @@
 const BASE_URL = 'https://fakestoreapi.com';
 
-// Clase 5: process.argv + destructuring (Clase 4)
+
 const args = process.argv.slice(2);
 const [method, resource, ...rest] = args;
 
-// --- Clase 6: fetch + async/await ---
+
 
 async function getProducts() {
     const response = await fetch(`${BASE_URL}/products`);
@@ -24,11 +24,11 @@ async function getProductById(id) {
 }
 
 async function createProduct(title, price, category) {
-    const nuevoProducto = { title, price: parseFloat(price), category }; // Clase 4: objeto literal
+    const nuevoProducto = { title, price: parseFloat(price), category }; 
     const response = await fetch(`${BASE_URL}/products`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(nuevoProducto),   // Clase 4: spread implícito via JSON
+        body: JSON.stringify(nuevoProducto),   
     });
     const data = await response.json();
     console.log(`Producto creado con id: ${data.id}`);
@@ -42,7 +42,7 @@ async function deleteProduct(id) {
     console.log(data);
 }
 
-// --- Router principal (Clase 5: process.argv, Clase 3: métodos de string) ---
+
 async function main() {
     try {
         if (!method || !resource) {
@@ -50,7 +50,7 @@ async function main() {
             return;
         }
 
-        const [endpoint, id] = resource.split('/'); // Clase 3: split + destructuring
+        const [endpoint, id] = resource.split('/');
 
         if (method === 'GET' && endpoint === 'products') {
             id ? await getProductById(id) : await getProducts();
