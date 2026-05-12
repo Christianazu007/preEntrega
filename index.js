@@ -8,11 +8,8 @@ const [method, resource, ...rest] = args;
 
 async function getProducts() {
     const response = await fetch(`${BASE_URL}/products`);
-    const products = await response.json();
-    // Clase 3: forEach + template literals
-    products.forEach(({ id, title, price, category }) => {
-        console.log(`[${id}] ${title} | $${price} | ${category}`);
-    });
+    const data = await response.json();
+    console.log(data);
 }
 
 async function getProductById(id) {
@@ -22,11 +19,8 @@ async function getProductById(id) {
         console.log(`Producto con id ${id} no encontrado.`);
         return;
     }
-    const { title, price, category, description } = JSON.parse(text); // Clase 4: destructuring
-    console.log(`Título:      ${title}`);
-    console.log(`Precio:      $${price}`);
-    console.log(`Categoría:   ${category}`);
-    console.log(`Descripción: ${description}`);
+    const data = JSON.parse(text);
+    console.log(data);
 }
 
 async function createProduct(title, price, category) {
