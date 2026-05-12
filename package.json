@@ -1,0 +1,13 @@
+{
+  "name": "pre-entrega",
+  "version": "1.0.0",
+  "description": "Gestor de productos TechLab - Pre-Entrega Node JS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["node", "api", "fakestore"],
+  "author": "TechLab",
+  "license": "MIT"
+}
